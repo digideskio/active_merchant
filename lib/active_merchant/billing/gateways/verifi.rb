@@ -108,6 +108,7 @@ module ActiveMerchant #:nodoc:
         add_customer_data(post, options)
         add_invoice_data(post, options)
         add_optional_data(post, options)
+        add_merchant_defined_fields(post, options)
         commit(trx_type, money, post)
       end
 
@@ -182,6 +183,13 @@ module ActiveMerchant #:nodoc:
         post[:cavv]               = options[:cavv]
         post[:xid]                = options[:xid]
         post[:customer_receipt]   = options[:customer_receipt]
+      end
+
+      def add_merchant_defined_fields(post, options)
+        (1..20).each do |n|
+          mdf = sprintf('merchant_defined_field_%d', n).to_sym
+          post[mdf] = options[mdf]
+        end
       end
 
       def add_security_key_data(post, options, money)
