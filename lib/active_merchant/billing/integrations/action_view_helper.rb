@@ -30,6 +30,18 @@ module ActiveMerchant #:nodoc:
         #                              :country => 'CA',
         #                              :zip => 'K1J1E5' %>
         #
+        #    <% service.line_item :name => 'T-shirt',
+        #                         :type => 'XL',
+        #                         :sku  => '1234',
+        #                         :unit_price => 10.00,
+        #                         :quantity => 2 %>
+        #
+        #    <% service.line_item :name => 'Pants',
+        #                         :type => 'S',
+        #                         :sku => '1235',
+        #                         :unit_price => 30.00,
+        #                         :quantity => 1 %>
+        #
         #    <% service.invoice '#1000' %>
         #    <% service.shipping '0.00' %>
         #    <% service.tax '0.00' %>

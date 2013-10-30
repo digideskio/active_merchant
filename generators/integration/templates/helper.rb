@@ -27,6 +27,13 @@ module ActiveMerchant #:nodoc:
           mapping :description, ''
           mapping :tax, ''
           mapping :shipping, ''
+
+          mapping :line_items, ''
+          mapping :line_item, :name           => '',
+                              :sku            => '',
+                              :type           => '',
+                              :unit_price     => '',
+                              :quantity       => ''
         end
       end
     end
