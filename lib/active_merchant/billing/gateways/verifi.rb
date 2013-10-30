@@ -10,6 +10,7 @@ module ActiveMerchant #:nodoc:
       end
 
       self.live_url = self.test_url = 'https://secure.verifi.com/gw/api/transact.php'
+      self.ssl_version = :TLSv1
 
       RESPONSE_CODE_MESSAGES = {
         "100" => "Transaction was Approved",
