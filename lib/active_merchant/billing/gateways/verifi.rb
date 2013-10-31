@@ -56,7 +56,9 @@ module ActiveMerchant #:nodoc:
         :capture => 'capture',
         :void => 'void',
         :credit => 'credit',
-        :refund => 'refund'
+        :refund => 'refund',
+        :validate => 'validate',
+        :verify => 'verify'
       }
 
       self.supported_countries = ['US']
@@ -96,6 +98,14 @@ module ActiveMerchant #:nodoc:
 
       def refund(money, reference, options = {})
         capture_void_or_refund_template(:refund, money, reference, options)
+      end
+
+      def verify(credit_card, options = {})
+        sale_authorization_or_credit_template(:verify, 0, credit_card, options)
+      end
+
+      def validate(credit_card, options = {})
+        sale_authorization_or_credit_template(:validate, 0, credit_card, options)
       end
 
       private
