@@ -108,6 +108,14 @@ module ActiveMerchant #:nodoc:
         sale_authorization_or_credit_template(:validate, 0, credit_card, options)
       end
 
+      def recurring(money, vault_id, options = {})
+        post = VerifiPostData.new
+        post[:transactionid] = vault_id
+        add_security_key_data(post, options, money)
+        add_merchant_defined_fields(post, options)
+        commit(:purchase, money, post)
+      end
+
       private
 
       def sale_authorization_or_credit_template(trx_type, money, credit_card, options = {})
