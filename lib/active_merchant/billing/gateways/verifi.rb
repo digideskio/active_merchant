@@ -252,6 +252,8 @@ module ActiveMerchant #:nodoc:
         post[:password]   = @options[:password]
         post[:type]       = TRANSACTIONS[trx_type]
 
+        ap post
+        ap post.to_s
         post.to_s
       end
     end
