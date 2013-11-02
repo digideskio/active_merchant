@@ -100,6 +100,10 @@ module ActiveMerchant #:nodoc:
         capture_void_or_refund_template(:refund, money, reference, options)
       end
 
+      def store(credit_card, options = {})
+        sale_authorization_or_credit_template(:verify, 0, credit_card, options)
+      end
+
       def verify(credit_card, options = {})
         sale_authorization_or_credit_template(:verify, 0, credit_card, options)
       end
