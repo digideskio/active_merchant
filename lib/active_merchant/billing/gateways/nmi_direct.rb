@@ -150,11 +150,13 @@ module ActiveMerchant #:nodoc:
       end
 
       def add_credit_card(post, credit_card)
-        post[:ccnumber]  = credit_card.number
-        post[:ccexp]     = expdate(credit_card)
-        post[:firstname] = credit_card.first_name
-        post[:lastname]  = credit_card.last_name
-        post[:cvv]       = credit_card.verification_value
+        if credit_card.kind_of?(CreditCard)
+          post[:ccnumber]  = credit_card.number
+          post[:ccexp]     = expdate(credit_card)
+          post[:firstname] = credit_card.first_name
+          post[:lastname]  = credit_card.last_name
+          post[:cvv]       = credit_card.verification_value
+        end
       end
 
       def add_addresses(post, options)
