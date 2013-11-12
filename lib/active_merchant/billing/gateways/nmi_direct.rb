@@ -251,8 +251,8 @@ module ActiveMerchant #:nodoc:
         post[:type]           = TRANSACTIONS[trx_type] if TRANSACTIONS.has_key?(trx_type)
         post[:customer_vault] = VAULT[trx_type] if VAULT.has_key?(trx_type)
 
-        ap post
-        ap post.to_s
+        # ap post
+        # ap post.to_s
 
         post.to_s
       end
